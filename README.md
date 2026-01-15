@@ -8,10 +8,7 @@ This project undertakes a thorough analysis and synthesis of their data to devel
 
 ---
 
-<details>
-<summary> Click to view Forggith’s reporting requirements</summary>
 
-![Report requirements](./Snapshots/Report_requirement.png)
 
 </details>
 
@@ -30,9 +27,7 @@ Insights and recommendations are provided in the following key areas:
 ## Data Structure and Modeling 🛢
 
 From the datasets provided, the **Sales** fact table contains **213,598 rows** spanning four years of transactions (2022–2025). A **multi-fact table modeling approach** was used due to differences in granularity between the Sales and Target datasets.
-Below is a snapshot of the data model created:
 
-![Data Model](./Snapshots/Data_model_snapshot.png)
 <details>
 <summary><ins>Why a multi-fact table approach was employed 💭</ins></summary>
 <br>
@@ -89,7 +84,7 @@ Below is the **Sales Performance Overview** page from the Power BI dashboard. Ad
 
 - **Emerging Risk:** If the trend of distributor loss continues, and any of the top contributors exit, a significant revenue decline is likely.
 
-![Revenue by Distributors](./Snapshots/distributors_updated.png)
+
 
 
 ### Product Class Performance 💊
@@ -102,7 +97,7 @@ Below is the **Sales Performance Overview** page from the Power BI dashboard. Ad
 
 - Antimalarials sold more units (4.1M) than Antipyretics (4M) and Antibiotics (3.9M), yet generated the least revenue overall, pointing to lower price points.
 
-![Product Performance](./Snapshots/Product_performance.png)
+
 
 ### Sales Team Performance 🎯
 
@@ -115,7 +110,7 @@ Below is the **Sales Performance Overview** page from the Power BI dashboard. Ad
 
 - Alpha team mirrored this pattern, dropping from 153% in 2022 to 109% in 2025, consistently meeting targets, but with declining year-over-year performance.
 
-![Team Performance](./Snapshots/Rev_by_team.png)
+
 
 
 
@@ -169,13 +164,13 @@ Below is a Marketing Performance Dashboard developed for Forggith, enabling dyna
 
 1. The report content consists of two pages, Sales Performance Overview and Marketing Performance Overview, structured according to Forggith’s reporting requirements. Each page was designed to be concise and focused.
 
-2. Sales data was provided at a **city-level granularity**, limiting state-level analysis. To enhance regional insights, a Python script using the Geopy library was written to derive the State from each location's Latitude and Longitude. This enriched location data was then exported and integrated into Power BI, enabling drill-down from State to City level. To access the Python file used to derive the state column, click [here](./Forggith%20RLS%20Enforced.ipynb).
+2. Sales data was provided at a **city-level granularity**, limiting state-level analysis. To enhance regional insights, a Python script using the Geopy library was written to derive the State from each location's Latitude and Longitude. This enriched location data was then exported and integrated into Power BI, enabling drill-down from State to City level.
 
-3. Row-Level Security (RLS) was initially implemented with three roles: *Sales Rep, Manager, and Executive*, enabling role-based data access. However, publishing the report with these roles disabled the embed report link due to tenant restrictions. As a result, RLS was removed in this version. To access the PBIX file with RLS, click [here](./forggith_geolocation_state_extraction.pbix).
+4. Row-Level Security (RLS) was initially implemented with three roles: *Sales Rep, Manager, and Executive*, enabling role-based data access. However, publishing the report with these roles disabled the embed report link due to tenant restrictions.
    
-4. A total of 2,613 rows had negative quantity values, ranging from -1 to -7,200. Since these rows included key identifiers such as distributor name, customer name, location, and sales ID, they were retained, and the quantities were converted to positive values.
+5. A total of 2,613 rows had negative quantity values, ranging from -1 to -7,200. Since these rows included key identifiers such as distributor name, customer name, location, and sales ID, they were retained, and the quantities were converted to positive values.
    
-5. The U.S. dollar ($) was assumed as the currency for this report, as none was explicitly stated.
+6. The U.S. dollar ($) was assumed as the currency for this report, as none was explicitly stated.
 
 
 
